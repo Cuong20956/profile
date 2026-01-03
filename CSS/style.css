@@ -1,0 +1,453 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: white;
+    border-radius: 20px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+    animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-avatar {
+    width: 210px;
+    height: 300px;
+    border-radius: 10px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    animation: bounce 3s infinite;
+    object-fit: cover;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.bio {
+    color: #777;
+    font-size: 1em;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+.social-links a:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Main Content Grid */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-full {
+    grid-column: 1 / -1;
+    animation-delay: 0.4s;
+}
+
+.card h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* Skills */
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95em;
+}
+
+.skill-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 10px;
+    animation: fillWidth 1s ease forwards;
+}
+
+@keyframes fillWidth {
+    from { width: 0; }
+    to { width: var(--width, 100%); }
+}
+
+/* Experience */
+.experience-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-item h3 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.experience-item .date {
+    color: #999;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.experience-item p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.card-full p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* Portfolio */
+.portfolio {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease 0.5s forwards;
+    opacity: 0;
+    margin-bottom: 30px;
+}
+
+.portfolio h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.portfolio-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.portfolio-item p {
+    font-size: 0.95em;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Career Path */
+.career-path {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease 0.6s forwards;
+    opacity: 0;
+    margin-bottom: 30px;
+}
+
+.career-path h2 {
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.career-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.career-step {
+    background: linear-gradient(135deg, #f5f7fa, #e9ecef);
+    border-left: 5px solid #667eea;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.career-step:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.career-level {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.career-step h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.career-step p {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.timeline-year {
+    display: inline-block;
+    color: #764ba2;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.career-connector {
+    height: 30px;
+    border-left: 3px dashed #667eea;
+    margin-left: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    animation: slideUp 0.8s ease 0.7s forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.contact-btn {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 15px 0;
+    transition: all 0.3s;
+    border: 2px solid white;
+}
+
+.contact-btn:hover {
+    background: transparent;
+    color: white;
+}
+
+.copyright {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .title {
+        font-size: 1em;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 60px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.3em;
+    }
+
+    .portfolio {
+        padding: 20px;
+    }
+
+    .career-path {
+        padding: 20px;
+    }
+}
